@@ -20,13 +20,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// Class Namespace
-namespace amattu;
+namespace amattu2;
 
 /**
  * Simple Event Logger class
  */
-class EventLogger {
+class EventLogger
+{
   /**
    * The collection of events
    *
@@ -55,18 +55,18 @@ class EventLogger {
    */
   public function __construct()
   {
-    $this->events = Array();
+    $this->events = [];
   }
 
   /**
    * Add a new event to the logs
    *
    * @param string $text event content
-   * @param ?DateTime $timestamp event timestamp
+   * @param ?\DateTime $timestamp event timestamp
    * @return boolean success
    * @author Alec M.
    */
-  public function addEvent(string $text, \DateTime $timestamp = null) : bool
+  public function addEvent(string $text, \DateTime$timestamp = null): bool
   {
     // Add start timestamp
     if (!$this->startTime) {
@@ -74,10 +74,10 @@ class EventLogger {
     }
 
     // Push new event
-    $this->events[] = Array(
+    $this->events[] = [
       'text' => $text,
-      'timestamp' => $timestamp ?: new \DateTime()
-    );
+      'timestamp' => $timestamp ?: new \DateTime(),
+    ];
 
     // Update last timestamp
     $this->endTime = new \DateTime();
@@ -91,7 +91,7 @@ class EventLogger {
    *
    * @return \DateTime
    */
-  public function getStartTime() : \DateTime
+  public function getStartTime(): \DateTime
   {
     return $this->startTime;
   }
@@ -101,7 +101,7 @@ class EventLogger {
    *
    * @return \DateTime
    */
-  public function getEndTime() : \DateTime
+  public function getEndTime(): \DateTime
   {
     return $this->endTime;
   }
@@ -111,7 +111,7 @@ class EventLogger {
    *
    * @return array
    */
-  public function getEvents() : array
+  public function getEvents(): array
   {
     return $this->events;
   }
@@ -122,7 +122,7 @@ class EventLogger {
    * @param string $date_format DateTime format string
    * @return string HTML table
    */
-  public function getEventsTable(string $date_format = "Y-m-d G:i:s") : string
+  public function getEventsTable(string $date_format = "Y-m-d G:i:s"): string
   {
     // HTML table
     $html = "<table style='width: 100%; border-collapse: collapse;'><thead style='background: #3b3b3b; color: #fff;'><tr><td>#</td><td>Timestamp</td><td>Event</td></tr></thead>";
@@ -141,5 +141,4 @@ class EventLogger {
     // Return
     return $html;
   }
-
 }

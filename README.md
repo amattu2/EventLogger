@@ -1,8 +1,11 @@
 # Introduction
+
 This is a basic PHP event logger class for writing HTML based event logs.
 
 # Usage
+
 ### addEvent
+
 This function is used to add a new event log. Optionally override the default timestamp (now).
 
 ```PHP
@@ -18,6 +21,7 @@ public function addEvent(string $text, \DateTime $timestamp = null) : bool
 ```
 
 ### getStartTime
+
 This function returns the exact DateTime for the timestamp of the first event added.
 
 ```PHP
@@ -30,6 +34,7 @@ public function getStartTime() : \DateTime
 ```
 
 ### getEndTime
+
 This function returns the timestamp as a DateTime for the last time an event was added to the log.
 
 ```PHP
@@ -42,6 +47,7 @@ public function getEndTime() : \DateTime
 ```
 
 ### getEvents
+
 This returns the event log as an array.
 
 ```PHP
@@ -54,6 +60,7 @@ public function getEvents() : array
 ```
 
 ### getEventsTable
+
 This returns the event log formatted as an HTML table. Optionally override the DateTime format for events.
 
 ```PHP
@@ -67,4 +74,5 @@ public function getEventsTable(string $date_format = "Y-m-d G:i:s") : string
 ```
 
 # Requirements & Dependencies
-PHP7 or above
+
+PHP 7+ or above

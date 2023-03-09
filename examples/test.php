@@ -20,9 +20,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require(dirname(__FILE__, 2) . "/EventLogger.class.php");
+require(dirname(__FILE__, 2) . "/src/EventLogger.php");
 
-$logger = new amattu\EventLogger();
+$logger = new amattu2\EventLogger();
 
 $logger->addEvent("Found 247 tickets to be exported");
 $logger->addEvent("Skipped 11 ticket line items");
@@ -32,4 +32,3 @@ $logger->addEvent("Tickets updated and logs inserted");
 $logger->addEvent("Completed job");
 
 echo $logger->getEventsTable();
-
